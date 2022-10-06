@@ -16,6 +16,7 @@ public class Book {
     private String caption;
 
     public Book() {
+        authors = new Author[0];
     }
 
     public Author[] getAuthors() {
@@ -24,6 +25,16 @@ public class Book {
 
     public void setAuthors(Author[] authors) {
         this.authors = authors;
+    }
+    
+    public void addAuthor(Author author){
+        //Copy authors into newAuthors, where in one place more
+        //Add in this place author from methods parametors
+        //Copy link newAuthors into authors
+        
+        Author[] newAuthors = Arrays.copyOf(authors, authors.length+1);
+        newAuthors[newAuthors.length - 1] = author;
+        authors = newAuthors;
     }
 
     public String getCaption() {
